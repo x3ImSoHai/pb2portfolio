@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Nyo. | Admin</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='{% static "css/reset.css" %}'>
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+</head>
+<body class="adminPage">
+    
+        Slideshow table
+        <table class="slideshowtable">
+        <tr><th>ID</th><th>Path</th><th>Action</th></tr>
+        {% for row in slideshow %}
+            <form class="adminForm" action="/api/actionImg" method="post" onsubmit="return confirm('Do you really want to delete / change?');">
+            {% csrf_token %}
+                <tr>
+                {% for data in row %}
+                    <td>{{ data }}</td>
+                {% endfor %}
+                <td><input type="submit" name="req" value="Delete"><input type="submit" name="req" value="Change"><input type="hidden" name="id" value="{{ row.0|default:"nothing" }}"></td>
+                </tr>
+                <input type="hidden" name="apiKey" value="83388fc7d26bdf4d930ab67bbf4cfbfc"/>
+            </form>
+        {% endfor %}
+        </table>
+    <br>
+        Bug table
+        <table class="slideshowtable bugTableAdmin">
+            <colgroup>
+                <col class="fivepercent"></col>
+                <col class="twentypercent"></col>
+                <col class="fivefivepercent"></col>
+                <col class="sevenpercent"></col>
+                <col class="sevenpercent"></col>
+            </colgroup>
+        <tr><th>ID</th><th>Name</th><th>Description</th><th>Severity</th><th>Action</th></tr>
+        {% for row in bug %}
+            <form class="adminForm" action="/api/actionBug" method="post" onsubmit="return confirm('Do you really want to delete / change?');">
+            {% csrf_token %}
+                <tr>
+                {% for data in row %}
+                    <td>{{ data }}</td>
+                {% endfor %}
+                <td><input type="submit" name="req" value="Delete"><input type="submit" name="req" value="Change"><input type="hidden" name="id" value="{{ row.0|default:"nothing" }}"></td>
+                </tr>
+                <input type="hidden" name="apiKey" value="83388fc7d26bdf4d930ab67bbf4cfbfc"/>
+            </form>
+        {% endfor %}
+        </table>
+
+    <p style="padding: 1em;">Severity: 1 - High, 2 - Medium, 3 - Low.</p>
+
+    Add entry to slideshowtable
+    <form class="adminForm" id="slideshowForm" action="/api/addImg" method="post">
+        {% csrf_token %}
+        <label>Path of image</label><input name="path"/>
+        <br>
+        <input type="submit"/>
+        <input type="hidden" name="apiKey" value="83388fc7d26bdf4d930ab67bbf4cfbfc"/>
+    </form>
+
+    Add entry to bug table
+    <form class="adminForm" id="bugForm" action="/api/addBug" method="post">
+        {% csrf_token %}
+        <label>Name</label><textarea name="name" form="bugForm"></textarea>
+        <br>
+        <label>Description</label><textarea name="description" form="bugForm"></textarea>
+        <br>
+        <label>Severity</label><input type="number" name="severity"/>
+        <br>
+        <input type="submit"/>
+        <input type="hidden" name="apiKey" value="83388fc7d26bdf4d930ab67bbf4cfbfc"/>
+    </form>
+    <a href="/logout" style="color: white; font-size: 2em; font-weight: 300">Log out</a>
+</body>
+</html>

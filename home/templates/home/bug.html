@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>C-Nyo. | ALE Bug Megathread</title>
+    <link rel="stylesheet" href='{% static "css/reset.css" %}'>
+    <link rel="stylesheet" href='{% static "css/animate.css" %}'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--
+    <div class="cursor"></div><div id="cursorMiddle"></div>
+
+    <div id="loadingScreen">
+        <p>Nyove presents</p>
+        <div id="loadingCircle"></div>
+    </div>
+-->
+    <div class="nav">
+        <img src='{% static "images/icon.png" %}' id="webIcon"/>
+        <a href="/">Home</a>
+        <a href="http://nyove.pythonanywhere.com" target="_blank">Rocket Leaderboard</a>
+        <a href="/bug" class="activeNav">ALE Bug Megathread</a>
+        <a><div class="sideSeperator"></div></a>
+        <a href="/login">Login</a>
+    </div>
+    <div class="mainBug">
+        <div class="txtCenter">
+            <div class="bugTitle">ALE Trigger Bug Megathread</div>
+            <div class="bugSubtitle">Leave a reply in the forum topic if you want to contribute</div>
+        </div>
+        <table class="bugTable">
+            <colgroup>
+                <col class="thirtypercent"></col>
+                <col class="fivefivepercent"></col>
+                <col class="twentypercent"></col>
+            </colgroup>
+            <tr class="bugHeader"><th>Trigger action</th><th>Description</th><th>Severity</th></tr>
+            {% for row in bug %}
+            <!-- An entry -->
+            <tr>
+                {% for data in row %}
+                    {% if forloop.first %}
+                    {% elif forloop.last %}
+                        {% if data == 1 %}
+                            <td class="txtCenter severityHigh">
+                                High
+                        {% elif data == 2%}
+                            <td class="txtCenter severityMedium">
+                                Medium
+                        {% else %}
+                            <td class="txtCenter">
+                                Low
+                        {% endif %}
+                        </td>
+                    {% else %}
+                        <td>
+                            {{ data }}
+                        </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="bugDivder"><th></th><th></th><th></th></tr>
+            <!-- End of entry -->
+            {% endfor %}
+        </table>
+        <div class="totalBug txtCenter">
+            {{total}} total recorded bugs.
+        </div>
+        <!--
+        <div class="contributorPane txtCenter">
+            <div class="contributorHeader bold">
+                Contributor
+                <div class="borderSeperator2"></div>
+            </div>
+            <div class="contributorList">
+                <p>jeje52 * 2</p>
+                <p>jeje52 * 2</p>
+                <p>jeje52 * 2</p>
+                <p>jeje52 * 2</p>
+            </div>
+        </div>
+        -->
+    </div>
+    <div class="footer">
+        <div class="iconPane">
+            <b>Proud to be something meaningful.</b>
+            <br>
+            <p>Proving ALE support for those in need. :)</p>
+            <img src="{% static 'images/youtubeIcon.png' %}" id="youtubeIcon"/>
+            <img src="{% static 'images/PB2Icon.png' %}" id="pb2Icon"/>
+            <div class="borderSeperator"></div>
+        </div>
+        <p>© Copyright @ 2020. All rights reserved.</p>
+    </div>
+</body>
+<script>
+    AOS.init();
+</script>
+<script src="{% static 'scripts/scriptBug.js' %}"></script>
+</html>

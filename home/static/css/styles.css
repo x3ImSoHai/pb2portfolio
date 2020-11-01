@@ -1,0 +1,1016 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    color: #B4B4B4;
+    font-size: 20px;
+    font-family: "Roboto";
+    font-weight: 100;
+    cursor: default;
+}
+
+#loadingScreen{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 722px;
+    background: #000000;
+    z-index: 1;
+}
+
+#loadingScreen p{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.5em;
+    font-weight: 300;
+    background-color: black;
+    z-index: 2;
+    padding: 0.25em 0;
+}
+
+#loadingScreen #loadingCircle{
+    position: absolute;
+    top: 40.5%; left: 45.5%;
+    border: 1px solid transparent;
+    border-top-color: white;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: rotateLoading 1s infinite;
+}
+
+@keyframes rotateLoading{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.slideOut{
+    animation: slideOutUp;
+    animation-duration: 1.5s;
+}
+
+.slideIn{
+    animation: fadeInUp;
+    animation-duration: 1.5s;
+}
+
+.hide{
+    display: none !important;
+    height: 0px !important;
+}
+
+/*
+.cursor{
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    transition: 200ms;
+    transition-timing-function: ease-out;
+    animation: cursorAnimation .5s infinite alternate;
+    z-index: 3;
+}
+
+#cursorMiddle{
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+@keyframes cursorAnimation{
+    from{
+        transform: scale(1.5);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+@keyframes expandAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.expand{
+    animation: expandAnimation .5s forwards !important;
+    border: 1px solid #ffea96 !important;
+}
+
+.hoverMode2{
+    background-color: lightgreen !important;
+}
+    
+.hoverMode{
+    border: 1px solid lightgreen;
+}
+*/
+.landingScreen{
+    display: grid;
+    grid-template-columns: 75% 0% 25%;
+    background-color: #161616;
+    background-image: url("../images/concrete.png");
+    height: 759px;
+    overflow: hidden;
+}
+
+.sideSeperator{
+    border-right: 1px solid #707070;
+    height: 70%;
+    margin: auto 0;
+}
+
+.bioPaneContainer{
+    margin: 72px 0;
+    height: 578px;
+}
+
+.bioPaneContainerCenter{
+    position: absolute;
+    transform: translate(5%, 11%);
+}
+
+.txtCenter{
+    text-align: center;
+}
+
+.title{
+    font-size: 6em;
+    font-weight: 300;
+    padding: 0.2em;
+}
+
+.bio{
+    font-size: 2.25em;
+    padding: 0.2em 0em 0.5em;
+}
+
+.borderSeperator{
+    border-bottom: 1px solid #707070;
+    width: 50%;
+    margin: 1em auto;
+}
+
+.gold{
+    color: #F1FFCC;
+    font-size: 1em;
+}
+
+.green{
+    color: #76FF80;
+}
+
+.profileButton{
+    font-size: 40px;
+    border: 1px solid #707070;
+    width: 20%;
+    margin: 1em auto;
+    padding: 0.5em 0em;
+    border-radius: 0.5em;
+    transition-duration: .7s;
+}
+
+.profileButton:hover{
+    background-color: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.characterPane img{
+    display: block;
+    width: 12.5em;
+    margin: 0 auto;
+}
+
+.nav{
+    position: relative;
+    padding: 1.5em;
+    background-color: #ffffff;
+    color: black;
+    text-align: right;
+    z-index: 1;
+    box-shadow: 1px 1px 3px 3px rgba(150,150,150, 0.3);
+}
+
+#webIcon{
+    position: absolute;
+    height: 120px;
+    left: 1.5em;
+    top: 10px;
+}
+
+.nav .sideSeperator{
+    display: inline;
+}
+
+.nav a{
+    display: inline-block;
+    padding: 0.2em 1em;
+    transition-duration: .7s;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    transform: scale(1.1);
+}
+
+.activeNav{
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+.achievementPane{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color:#e6ffe6;
+}
+
+.achievementPane div{
+    height: 325px;
+    position: relative;
+}
+
+.DDevpane div, .fstpane div{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 217px;
+    text-align: center;
+    color: black;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.achievedText{
+    display: block;
+    font-size: 0.35em;
+    padding: 0.7em;
+    font-weight: 300;
+}
+
+.iconD{
+    height: 150px;
+}
+
+.iconC{
+    height: 120px;
+    padding: 0.3em;
+}
+
+.sloganPane{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background: url("../images/dark blueprint.png") fixed;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+}
+
+.sloganPaneDiv{
+    margin: 2.5em 0;
+    width: 60vw;
+    color: white;
+    font-size: 37px;
+    line-height: 60px;
+}
+
+.glow{
+    text-shadow: 0px 0px 15px#DDD;
+}
+
+.imgSlideShowPane{
+    position: relative;
+    height: 722px;
+    background-color: #161616;
+    text-align: center;
+    overflow: hidden;
+}
+
+.imgSlideShowPane .slideImg{
+    display: inline-block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    height: 505px;
+}
+
+.imgSide{
+    position: absolute;
+    height: 650px;
+    width: 47%;
+}
+
+.imgCenter{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 20%;
+}
+
+.imgLeft{
+    left: 0;
+    bottom: 0;
+}
+
+.imgRight{
+    right: 0;
+}
+
+.arrow{
+    position: absolute;
+    height: 4em;
+    width: 4em;
+    border: 1px solid white;
+    border-radius: 20px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.arrow img{
+    position: relative;
+    top: 23px;
+}
+
+.arrowRight{
+    right: 5%;
+}
+
+.arrowLeft{
+    left: 10%;
+}
+
+.arrowButton{
+    position: relative;
+    top: -0.1px;
+    height: 4.05em;
+    width: 4em;
+    border-radius: 20px;
+    transition-duration: .7s;
+}
+
+.arrowButton:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+
+.footer{
+    font-weight: 300;
+    text-align: center;
+    color: black;
+    background-color: #e6ffe6;
+    padding: 2em;
+}
+
+.footer p{
+    font-size: 0.6em;
+}
+
+.iconPane{
+    width: 30%;
+    margin: 0em auto;
+    font-size: 0.8em;
+}
+
+.iconPane p{
+    color: rgb(13, 151, 0);
+    font-size: 0.9em;
+    margin-top: 0.1em;
+}
+
+.iconPane b{
+    font-size: 1.3em;
+    color: black;
+    display: inline-block;
+    font-weight: 500;
+    padding: 0.25em 0;
+}
+
+.iconPane img{
+    padding: 2em 2.5em 1em;
+    transition-duration: .7s;
+    cursor: pointer;
+}
+
+.iconPane img:hover{
+    transform: scale(1.25);
+}
+
+#youtubeIcon{
+    height: 1.925em;
+}
+
+#pb2Icon{
+    height: 1.5em;
+}
+
+.mainBug{
+    background: url("../images/bugBg.png") fixed;
+    background-size: cover;
+}
+
+.titlePane{
+    text-align: center;
+}
+
+.bugTitle{
+    color: white;
+    font-weight: 500;
+    font-size: 50px;
+    padding: 1em 0 0.2em;
+}
+
+.bugSubtitle{
+    font-size: 0.8em;
+}
+
+.bugTable{
+    table-layout: fixed;
+    color: white;
+    width: 80%;
+    margin: 2em auto;
+    font-size: 0.9em;
+    line-height: 1.3em;
+}
+
+
+.bugHeader, .bugDivder{
+    border: 1px solid #707070;
+}
+
+.bugHeader th{
+    background-color: rgba(0,0,0,0.5);
+    padding: 1em;
+    font-weight: 300;
+    font-size: 1.4em;
+}
+
+.bugDivder th{
+    background-color: rgba(0,0,0,0.5);
+    padding: 0.5em;
+}
+
+.bugTable tr td{
+    padding: 1.5em;
+    word-wrap: break-word;
+}
+
+.totalBug{
+    padding: 0 0 2em;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.bold{
+    font-weight: 500;
+}
+
+.normal{
+    font-weight: 300;
+}
+
+.light{
+    font-weight: 100;
+}
+
+.contributorHeader{
+    width: 20%;
+    margin: 0 auto;
+    color: white;
+    font-size: 1.4em;
+}
+
+.contributorList{
+    padding: 0 0 1em 0;
+}
+.contributorList p{
+    padding: 0.2em;
+}
+
+.borderSeperator2{
+    border-bottom: 1px solid #707070;
+    width: 20%;
+    margin: 0.5em auto;
+}
+
+.loginPane{
+    position: relative;
+    height: 710px;
+    background: url("../images/loginBg2.png");
+    background-size: cover;
+}
+
+.loginBox{
+    background-color: rgba(255,255,255,0.75);
+    position: absolute;
+    height: 60%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loginTitle{
+    color: black;
+    font-size: 2.5em;
+    padding: 0.7em;
+    font-weight: 400;
+}
+
+.loginSection div{
+    padding: 0.6em 0.5em;
+}
+
+.loginSection div label{
+    display: inline-block;
+    color: black;
+    width: 35%;
+    font-size: 1.2em;
+    overflow: hidden;
+}
+
+.loginSection div input{
+    border: none;
+    height: 2em;
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+    width: 55%;
+}
+
+.loginSubmit{
+    color: black;
+    border: 1px solid black;
+    width: 30%;
+    margin: 1.5em auto;
+    font-size: 1.1em;
+    transition-duration: .7s;
+}
+
+.loginSubmit:hover{
+    border-radius: 10px;
+    background: rgba(255, 188, 244, 0.5);
+}
+
+.errorMessageLogin{
+    color: rgb(212, 0, 0);
+    padding: 0em;
+    font-weight: 300;
+}
+
+.adminPage{
+    background-color: #161616;
+    color: white;
+}
+
+.slideshowtable tr th{
+    border: 1px solid white;
+    padding: 1em;
+}
+
+.slideshowtable tr td{
+    border: 1px solid white;
+    padding: 1em;
+}
+
+.bugTableAdmin{
+    table-layout: fixed;
+    width: 100%;
+}
+
+.bugTableAdmin tr td{
+    word-wrap: break-word;
+}
+
+.fivepercent{
+    width: 5%;
+}
+
+.thirtypercent{
+    width: 30%;
+}
+
+.fivefivepercent{
+    width: 55%;
+}
+
+.twentypercent{
+    width: 20%;
+}
+
+.sevenpercent{
+    width: 7%;
+}
+
+.adminForm{
+    padding: 1em;
+}
+
+.adminForm textarea{
+    display: inline-block;
+    width: 30em;
+    height: 10em;
+}
+
+.adminForm label{
+    display: inline-block;
+    min-width: 8em;
+}
+
+#bugChange input{
+    width: 5em;
+}
+
+#bugChange textarea{
+    width: 30em;
+    height: 10em;
+}
+
+.severityHigh{
+    font-weight: 500;
+    color: #ffc5c5;
+}
+
+.severityMedium{
+    font-weight: 300;
+}
+
+#hamburgerIcon{
+    position: absolute;
+    display: none;
+    width: 3em;
+    right: 0;
+}
+
+@media screen and (max-width: 1500px) {
+    .bio{
+        font-size: 2.1em;
+    }
+    .imgSlideShowPane .slideImg{
+        height: 480px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .bio{
+        font-size: 2em;
+    }
+
+    .sloganPaneDiv{
+        font-size: 34px;
+    }
+
+    .imgSlideShowPane .slideImg{
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .bio{
+        font-size: 1.9em;
+    }
+    .loginSection div label{
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .bio{
+        font-size: 1.7em;
+    }
+    .sloganPaneDiv{
+        font-size: 32px;
+    }
+
+    .imgSlideShowPane .slideImg{
+        height: 420px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .sloganPaneDiv{
+        font-size: 28px;
+    }
+    .loginSection div label{
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    .bio{
+        font-size: 1.5em;
+    }
+    .sloganPaneDiv{
+        font-size: 27px;
+        line-height: 50px;
+    }
+
+    .imgSlideShowPane .slideImg{
+        height: 400px;
+    }
+
+    .iconPane{
+        width: 40%;
+    }
+
+    .loginSection div label{
+        font-size: 0.9em;
+    }
+
+    .loginBox{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .sloganPaneDiv{
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #webIcon{
+        display: none;
+    }
+
+    .nav{
+        display: none;
+    }
+
+    .landingScreen{
+        height: 600px;
+    }
+
+    .bioPaneContainerCenter{
+        transform: translate(0,0);
+        position: relative;
+    }
+    .landingScreen{
+        display: block;
+    }
+
+    .landingScreen .sideSeperator{
+        display: none;
+    }
+
+    .characterPane{
+        display: none;
+    }
+
+    .bio{
+        font-size: 1.7em;
+    }
+
+    #hamburgerIcon{
+        display: block;
+    }
+
+    .DDevpane div, .fstpane div{
+        width: 70%;
+    }
+
+    .imgSlideShowPane{
+        display: none;
+    }
+
+    .loginSection div label{
+        font-size: 1em;
+        min-width: 0;
+    }
+
+    .loginSection div input{
+        height: 1.8em;
+    }
+
+    .loginBox{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .bio{
+        font-size: 1.4em;
+    }
+    .gold{
+        font-size: 0.9em;
+    }
+    .sloganPaneDiv{
+        font-size: 24px;
+        line-height: 40px;
+    }
+    .iconPane{
+        width: 50%;
+    }
+    .loginBox{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .bio{
+        font-size: 1.3em;
+        padding: 0.2em 0.2em 0.5em
+    }
+    .gold{
+        font-size: 0.85em;
+    }
+    .DDevpane div, .fstpane div{
+        font-size: 1.8em;
+    }
+    .sloganPaneDiv{
+        width: 70vw;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .achievementPane{
+        display: block;
+    }
+    .bio{
+        font-size: 1.2em;
+    }    
+    .gold{
+        font-size: 0.8em;
+    }
+    .profileButton{
+        font-size: 1.2em;
+    }
+
+    .DDevpane div, .fstpane div{
+        font-size: 1.7em;
+    }
+
+    .iconD{
+        height: 130px;
+    }
+
+    .iconC{
+        height: 110px;
+    }
+
+    .iconPane{
+        width: 60%;
+    }
+
+    .loginBox{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .bio{
+        font-size: 1.1em;
+    }    
+    .gold{
+        font-size: 0.75em;
+    }
+    .sloganPaneDiv{
+        font-size: 20px;
+        line-height: 35px;
+    }
+    .iconPane{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .bio{
+        font-size: 1em;
+    }    
+    .gold{
+        font-size: 0.7em;
+    }
+    .title{
+        font-size: 5em;
+    }
+    
+    .DDevpane div, .fstpane div{
+        font-size: 1.32em;
+    }
+
+    .iconD{
+        height: 120px;
+    }
+
+    .iconC{
+        height: 100px;
+    }
+
+    .achievedText{
+        font-size: 0.45em;
+    }
+
+    .sloganPaneDiv{
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .iconPane{
+        width: 80%;
+    }
+
+    .loginBox{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .DDevpane div, .fstpane div{
+        font-size: 1em;
+    }
+
+    .iconD{
+        height: 110px;
+    }
+
+    .iconC{
+        height: 100px;
+    }
+
+    .iconPane{
+        width: 90%;
+    }
+
+    .iconPane b{
+        font-size: 1.1em;
+    }
+
+    .loginSection div label{
+        font-size: 0.85em;
+    }
+
+    .loginSection div input{
+        height: 1.5em;
+    }
+
+    .profileButton{
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (max-width: 370px) {  
+    .gold{
+        font-size: 0.7em;
+    }
+    .title{
+        font-size: 5em;
+    }
+    .iconD{
+        height: 90px;
+    }
+    .iconC{
+        height: 80px;
+    }
+    .loginSection div label{
+        font-size: 0.8em;
+    }
+    .loginSection div input{
+        height: 1.45em;
+    }
+    .loginBox{
+        width: 80%;
+    }
+}
+
+.phoneNav{
+    display: block;
+    position: absolute;
+    top: 3em;
+    right: 0;
+    width: 150px;
+    padding: 0.5em;
+}
+
+.phoneNav a{
+    font-size: 0.8em;
+    padding: 0.4em 0;
+    text-align: center;
+    width: 100%;
+}
+
+.phoneNav .phoneGone{
+    display: none;
+}

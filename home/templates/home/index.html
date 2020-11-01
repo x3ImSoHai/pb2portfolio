@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Nyo. | Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='{% static "css/reset.css" %}'>
+    <link rel="stylesheet" href='{% static "css/animate.css" %}'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--
+    <div class="cursor"></div><div id="cursorMiddle"></div>
+
+    <div id="loadingScreen">
+        <p>Nyove presents</p>
+        <div id="loadingCircle"></div>
+    </div>
+-->
+    <div id="notLoadingScreen">
+    <div class="nav">
+        <img src='{% static "images/icon.png" %}' id="webIcon"/>
+        <a href="/" class="activeNav">Home</a>
+        <a href="http://nyove.pythonanywhere.com" target="_blank">Rocket Leaderboard</a>
+        <a href="/bug">ALE Bug Megathread</a>
+        <a class="phoneGone"><div class="sideSeperator"></div></a>
+        <a href="/login">Login</a>
+    </div>
+        <img id="hamburgerIcon" src='{% static "images/hamburger.png" %}'/>
+        <div class="landingScreen">
+            <div class="bioPane hide1" id="bio">
+                <div class="bioPaneContainer">
+                    <div class=bioPaneContainerCenter>
+                        <div class="txtCenter title">Nyove</div>
+                        <div class="txtCenter bio">Advanced Level Developer, <span class="green">Map Approval Contributor</span></div>
+                        <div class="borderSeperator"></div>
+                        <div class="txtCenter gold">
+                            Making maps for the Plazma Burst 2 community since 2012.
+                        </div>
+                        <div class="borderSeperator"></div>
+                        <div class="txtCenter profileButton">
+                            Profile
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sideSeperator"></div>
+            <div class="characterPane hide1" id="sideImg">
+                <img src='{% static "images/nyove.png" %}'></img>
+            </div>
+        </div>
+        <div class="achievementPane">
+            <div class="DDevpane" data-aos="fade-up" data-aos-duration="2000">
+                <div>
+                    Diamond Dev
+                    <span class="achievedText">
+                        Achieved on 24 July 2020
+                    </span>
+                    <img src='{% static "images/diamond.png" %}' class="iconD"/>
+                </div>
+            </div>
+            <div class="fstpane" data-aos="fade-up" data-aos-duration="2000">
+                <div>
+                    1st place
+                    <span class="achievedText">
+                        Peaked on 3 Oct 2020
+                    </span>
+                    <img src='{% static "images/crown.png" %}' class="iconC"/>
+                </div>
+            </div>
+        </div>
+        <div class="sloganPane" id="bioContainer">
+            <div class="sloganPaneDiv" data-aos="fade-up" data-aos-duration="2000">
+                For the first 8 years of my PB2 career, my LDR has always been hovering around 20+. 
+                I have spent most of my time with PB2 on the ALE, creating and deleting many maps along the way. 
+                I really enjoyed map making, and to me LDR was never a factor. 
+                The joy of making beautiful maps as well as complicated trigger contraptions is what keeps me going. 
+                Fast forward to the year 2020, I have peaked <span class="glow">1st place</span> amongst the DEVs. 
+                I am proud to say I am one of the best, but I know I still much have more to learn.
+            </div>
+        </div>
+        <div class="imgSlideShowPane" id="slideShow">
+            <img src='{% static "images/backPanel.png" %}' class="imgSide imgCenter"/>
+            <img src='{% static "images/Path 1.png" %}' class="imgSide imgLeft"/>
+            <img src='{% static "images/Path 2.png" %}' class="imgSide imgRight"/>
+            <div class="arrow arrowRight"><div class="arrowButton"><img src='{% static "images/right arrow.png" %}'/></div></div>
+            <div class="arrow arrowLeft"><div class="arrowButton"><img src='{% static "images/left arrow.png" %}'/></div></div>
+            <!--
+            <img src="images/leftArrow.png" class="imgSide arrow imgRight"/>
+            <img src="images/rightArrow.png" class="imgSide arrow imgRight"/>
+            -->
+            <div class="slide">
+                {% for data in slideshow %}
+                    {% if forloop.first %}
+                        <img src="{% get_static_prefix %}images/slide/{{ data.0 }}.png" class="slideImg"/>
+                    {% else %}
+                        <img src="{% get_static_prefix %}images/slide/{{ data.0 }}.png" class="slideImg hide"/>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="iconPane">
+            <b>Proud to be something meaningful.</b>
+            <br>
+            <p>Proving ALE support for those in need. :)</p>
+            <img src='{% static "images/youtubeIcon.png" %}' id="youtubeIcon"/>
+            <img src='{% static "images/PB2Icon.png" %}' id="pb2Icon"/>
+            <div class="borderSeperator"></div>
+        </div>
+        <p>© Copyright @ 2020. All rights reserved.</p>
+    </div>
+</body>
+<script>
+    AOS.init();
+</script>
+<script src='{% static "scripts/script.js" %}'></script>
+</html>

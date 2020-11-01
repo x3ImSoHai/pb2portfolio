@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Nyo. | Login</title>
+    <link rel="stylesheet" href='{% static "css/reset.css" %}'>
+    <link rel="stylesheet" href='{% static "css/animate.css" %}'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--
+    <div class="cursor"></div><div id="cursorMiddle"></div>
+
+    <div id="loadingScreen">
+        <p>Nyove presents</p>
+        <div id="loadingCircle"></div>
+    </div>
+-->
+    <div class="nav">
+        <img src='{% static "images/icon.png" %}' id="webIcon"/>
+        <a href="/">Home</a>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <a href="http://nyove.pythonanywhere.com" target="_blank">Rocket Leaderboard</a>
+        <a href="/bug">ALE Bug Megathread</a>
+        <a class="phoneGone"><div class="sideSeperator"></div></a>
+        <a href="/login" class="activeNav">Login</a>
+    </div>
+    <img id="hamburgerIcon" src='{% static "images/hamburger.png" %}' style="z-index: 2;"/>
+    <div class="loginPane">
+        <div class="loginBox">
+            <div class="loginTitle txtCenter">Login</div>
+            <div class="loginSection normal">
+                <form action="/login" method="POST" id="loginForm">
+                    {% csrf_token %}
+                    <div><label class="txtCenter">Username</label><input name="login"/></div>
+                    <div><label class="txtCenter">Password</label><input type="password" name="password"/></div>
+                    <input type="submit" style="position: absolute; left: -9999px"/>
+                    <input type="hidden" value="submit" name="req"/>
+                </form>
+                <div class="loginSubmit txtCenter" id="loginSubmit">Submit</div>
+            </div>
+            <div class="errorMessageLogin txtCenter">{% if success is not None %}Invalid Credentials{% else %}<span style="color: black;">-- Discord: Nyove#4623 --</span>{% endif %}</div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="iconPane">
+            <b>Proud to be something meaningful.</b>
+            <br>
+            <p>Proving ALE support for those in need. :)</p>
+            <img src="{% static 'images/youtubeIcon.png' %}" id="youtubeIcon"/>
+            <img src="{% static 'images/PB2Icon.png' %}" id="pb2Icon"/>
+            <div class="borderSeperator"></div>
+        </div>
+        <p>© Copyright @ 2020. All rights reserved.</p>
+    </div>
+</body>
+<script>
+    AOS.init();
+</script>
+<script src="{% static 'scripts/scriptLogin.js' %}"></script>
+</html>

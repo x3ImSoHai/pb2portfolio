@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Nyo. | Admin</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='{% static "css/reset.css" %}'>
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+</head>
+<body class="adminPage">
+    <form id="bugChange" action="/api/changeBug" method="POST">
+    {% csrf_token %}
+    {% for data2 in data%}
+        {% if forloop.first %}
+            ID: {{data2}}
+            <input type="hidden" name="id" value="{{data2}}"/>
+            <br>
+            <br>
+        {% elif forloop.last %}
+            Severity
+            <br>
+            <input name="severity" value="{{data2}}"/>
+            <br>
+        {% else %}
+            {% if forloop.counter == 2 %}
+                Name
+                <br>
+                <textarea name="name" form="bugChange">{{data2}}</textarea>
+            {% endif %}
+            {% if forloop.counter == 3 %}
+                Description
+                <br>
+                <textarea name="description" form="bugChange">{{data2}}</textarea>
+            {% endif %}
+            <br>
+        {% endif %}
+    {% endfor %}
+    <br>
+    <input type="submit" value="Update"/>
+    <input type="hidden" name="apiKey" value="83388fc7d26bdf4d930ab67bbf4cfbfc"/>
+    </form>
+</body>
+</html>
