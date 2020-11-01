@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.decorators.csrf import csrf_exempt
 import pymysql
 import hashlib
 import base64
@@ -17,13 +16,13 @@ def saltnhash(password):
 
     m = hashlib.md5()
     m.update(saltedPassword.encode())
-    
+
     encoded = base64.b64encode(m.digest())
     return encoded.decode()
 
 def connectSQL():
-    #mydb = pymysql.connect("Nyove.mysql.pythonanywhere-services.com","Nyove","Power1000","Nyove$pb2")
-    mydb = pymysql.connect("localhost","root","root","pb2")
+    mydb = pymysql.connect("nyov.mysql.pythonanywhere-services.com","nyov","Power1000","nyov$database")
+    #mydb = pymysql.connect("localhost","root","root","pb2")
     return mydb
 
 def loginFunc(login, password):
@@ -55,7 +54,7 @@ def index(request):
     sql = "SELECT path FROM `npslideshow`"
     mycursor.execute(sql)
     slideshow = mycursor.fetchall()
-            
+
     indexJson = {
         'slideshow': slideshow,
     }
@@ -91,11 +90,11 @@ def admin(request):
             sql = "SELECT * FROM npslideshow"
             mycursor.execute(sql)
             slideshow = mycursor.fetchall()
-            
+
             sql = "SELECT * FROM npbug"
             mycursor.execute(sql)
             bug = mycursor.fetchall()
-            
+
             adminJson = {
                 'slideshow': slideshow,
                 'bug': bug
@@ -152,7 +151,7 @@ def changeImg(request):
 
             if not results:
                 return HttpResponse("Invalid ID!", status=400)
-            
+
             adminJson = {
                 "data" : results[0]
             }
@@ -185,7 +184,7 @@ def changeBug(request):
 
             if not results:
                 return HttpResponse("Invalid ID!", status=400)
-            
+
             adminJson = {
                 "data" : results[0]
             }
@@ -215,7 +214,7 @@ def addImg(request):
         mydb = connectSQL()
         mycursor = mydb.cursor()
 
-        sql = "INSERT INTO `pb2`.`npslideshow` (`path`) VALUES (%s);"
+        sql = "INSERT INTO `npslideshow` (`path`) VALUES (%s);"
         insertTuple = (path)
         mycursor.execute(sql, insertTuple)
         mydb.commit()
@@ -243,7 +242,7 @@ def addBug(request):
 
         if len(description) > 1000:
             return HttpResponse("Description too long. Max 1000 characters.", status=400)
-        
+
         if(severity != "1" and severity != "2" and severity != "3" ):
             return HttpResponse("Invalid format / number for severity. Only 1, 2 or 3.", status=400)
 
@@ -288,7 +287,7 @@ def actionImg(request):
 
         if req == "Delete":
             sql = "DELETE FROM `npslideshow` WHERE (`id` = %s);"
-            
+
             mycursor.execute(sql, insertTuple)
             mydb.commit()
 
@@ -330,7 +329,7 @@ def actionBug(request):
 
         if req == "Delete":
             sql = "DELETE FROM `npbug` WHERE (`id` = %s);"
-            
+
             mycursor.execute(sql, insertTuple)
             mydb.commit()
 
@@ -381,7 +380,7 @@ def changeBugApi(request):
 
         if len(description) > 1000:
             return HttpResponse("Description too long. Max 1000 characters.", status=400)
-        
+
         if(severity != "1" and severity != "2" and severity != "3" ):
             return HttpResponse("Invalid format / number for severity. Only 1, 2 or 3.", status=400)
 
