@@ -237,7 +237,7 @@ def addBug(request):
         if (description == "" or name == ""):
             return HttpResponse("Empty fields detected. Request not processed.", status=400)
 
-        if len(name) > 100:
+        if len(name) > 150:
             return HttpResponse("Name too long. Max 100 characters.", status=400)
 
         if len(description) > 1000:
@@ -375,7 +375,7 @@ def changeBugApi(request):
         if (description == "" or name == ""):
             return HttpResponse("Empty fields detected. Request not processed.", status=400)
 
-        if len(name) > 100:
+        if len(name) > 150:
             return HttpResponse("Name too long. Max 100 characters.", status=400)
 
         if len(description) > 1000:

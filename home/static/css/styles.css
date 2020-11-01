@@ -118,7 +118,7 @@ body{
 .hoverMode2{
     background-color: lightgreen !important;
 }
-    
+
 .hoverMode{
     border: 1px solid lightgreen;
 }
@@ -437,10 +437,16 @@ body{
 }
 
 .bugTitle{
+    display: block;
+    text-decoration: none;
     color: white;
     font-weight: 500;
     font-size: 50px;
     padding: 1em 0 0.2em;
+}
+
+.bugTitle:hover{
+    color: #aaff96;
 }
 
 .bugSubtitle{
@@ -474,6 +480,8 @@ body{
 }
 
 .bugTable tr td{
+    font-size: 0.9em;
+    font-weight: 300;
     padding: 1.5em;
     word-wrap: break-word;
 }
@@ -850,7 +858,7 @@ body{
     }
     .bio{
         font-size: 1.2em;
-    }    
+    }
     .gold{
         font-size: 0.8em;
     }
@@ -882,7 +890,7 @@ body{
 @media screen and (max-width: 600px) {
     .bio{
         font-size: 1.1em;
-    }    
+    }
     .gold{
         font-size: 0.75em;
     }
@@ -898,14 +906,14 @@ body{
 @media screen and (max-width: 450px) {
     .bio{
         font-size: 1em;
-    }    
+    }
     .gold{
         font-size: 0.7em;
     }
     .title{
         font-size: 5em;
     }
-    
+
     .DDevpane div, .fstpane div{
         font-size: 1.32em;
     }
@@ -971,7 +979,7 @@ body{
 }
 
 
-@media screen and (max-width: 370px) {  
+@media screen and (max-width: 370px) {
     .gold{
         font-size: 0.7em;
     }
