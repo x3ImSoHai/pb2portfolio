@@ -46,7 +46,7 @@
             {% csrf_token %}
                 <tr>
                 {% for data in row %}
-                    <td>{{ data }}</td>
+                    <td>{{ data|linebreaksbr }}</td>
                 {% endfor %}
                 <td><input type="submit" name="req" value="Delete"><input type="submit" name="req" value="Change"><input type="hidden" name="id" value="{{ row.0|default:"nothing" }}"></td>
                 </tr>
